@@ -4,3 +4,4 @@ nodel_modules/
 .edge-profile-desktop/
 .superpowers/
 .env
+.dev-server.*

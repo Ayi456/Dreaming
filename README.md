@@ -1,6 +1,39 @@
-# Interactive Garden Home
+<div align="center">
 
-**Language / 语言:** [中文](#中文) | [English](#english)
+<a id="interactive-garden-home"></a>
+
+<h1>Interactive Garden Home</h1>
+
+<p><strong>An interactive digital-garden personal homepage</strong></p>
+
+<p>
+  <a href="#中文"><strong>中文</strong></a>
+  <span> | </span>
+  <a href="#english"><strong>English</strong></a>
+</p>
+
+<p>
+  <img alt="Node.js 18+" src="https://img.shields.io/badge/Node.js-18%2B-3c873a?style=flat-square">
+  <img alt="JavaScript ES Modules" src="https://img.shields.io/badge/JavaScript-ES%20Modules-f7df1e?style=flat-square&labelColor=222222">
+  <img alt="MySQL optional" src="https://img.shields.io/badge/MySQL-optional-4479a1?style=flat-square">
+  <img alt="No framework" src="https://img.shields.io/badge/Framework-none-6b7280?style=flat-square">
+</p>
+
+<p>
+  <sub>Native frontend modules, a lightweight Node.js server, and a MySQL-backed gallery that still works beautifully with static fallback data.</sub>
+</p>
+
+</div>
+
+---
+
+<table>
+  <tr>
+    <td><strong>Frontend</strong><br>Plain HTML, CSS, and JavaScript modules.</td>
+    <td><strong>Server</strong><br>Node.js HTTP server for static files and APIs.</td>
+    <td><strong>Gallery</strong><br>MySQL data with local static fallback.</td>
+  </tr>
+</table>
 
 <a id="中文"></a>
 
@@ -9,6 +42,9 @@
 一个互动数字花园风格的个人展示首页。项目使用原生 HTML、CSS 和 JavaScript 组织前端模块，并提供一个轻量 Node.js 服务端，用于静态资源托管和 MySQL 图库接口。
 
 [Back to top / 回到顶部](#interactive-garden-home)
+
+> [!NOTE]
+> 没有配置 MySQL 时，页面仍会使用本地静态图库数据正常渲染。
 
 ### 功能亮点
 
@@ -34,6 +70,9 @@ npm run dev
 
 默认服务地址是 `http://127.0.0.1:5173`。如果没有配置 MySQL，页面仍会展示内置的静态图库数据。
 
+<details>
+<summary>查看数据库初始化步骤</summary>
+
 ### 配置数据库
 
 编辑 `.env`：
@@ -58,6 +97,8 @@ npm run db:init
 ```powershell
 npm run dev
 ```
+
+</details>
 
 ### 常用命令
 
@@ -100,6 +141,9 @@ An interactive digital-garden personal homepage. The project uses plain HTML, CS
 
 [Back to top / 回到顶部](#interactive-garden-home)
 
+> [!NOTE]
+> Without MySQL configuration, the page still renders normally using the local static gallery data.
+
 ### Highlights
 
 - Interactive garden homepage with project seeds, gallery items, ability panels, contact actions, and a page mascot.
@@ -123,6 +167,9 @@ npm run dev
 ```
 
 The default local URL is `http://127.0.0.1:5173`. Without MySQL configuration, the page still renders the built-in static gallery data.
+
+<details>
+<summary>Show database setup</summary>
 
 ### Database Setup
 
@@ -148,6 +195,8 @@ Then start the server:
 ```powershell
 npm run dev
 ```
+
+</details>
 
 ### Scripts
 
