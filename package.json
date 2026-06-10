@@ -1,0 +1,16 @@
+{
+  "name": "interactive-garden-home",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node scripts/dev-server.mjs",
+    "start": "node src/server/server.mjs",
+    "test": "node --test scripts/__tests__/*.test.mjs",
+    "check": "node scripts/check-static.mjs",
+    "db:init": "node scripts/init-gallery-db.mjs"
+  },
+  "dependencies": {
+    "mysql2": "^3.11.5"
+  }
+}

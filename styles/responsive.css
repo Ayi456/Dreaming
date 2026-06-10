@@ -1,0 +1,111 @@
+@media (max-width: 980px) {
+  .site-nav {
+    padding-inline: 18px;
+  }
+
+  .hero {
+    align-items: start;
+    padding-top: 40px;
+  }
+
+  .hero-grid,
+  .greenhouse,
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  h1 {
+    font-size: 3.7rem;
+  }
+
+  .hero-garden {
+    min-height: 430px;
+  }
+
+  .seed-grid,
+  .gallery-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .contact-actions {
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 680px) {
+  :root {
+    --nav-height: 64px;
+  }
+
+  .site-nav {
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: center;
+    gap: 8px;
+    padding-block: 12px;
+  }
+
+  .nav-links {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .nav-links a {
+    min-height: 34px;
+    padding-inline: 8px;
+    font-size: 0.92rem;
+  }
+
+  .section {
+    padding: 78px 18px;
+  }
+
+  .hero {
+    min-height: auto;
+    padding: 34px 18px 68px;
+  }
+
+  h1 {
+    font-size: 2.8rem;
+  }
+
+  .section-heading h2,
+  .contact h2 {
+    font-size: 2.2rem;
+  }
+
+  .hero-garden {
+    min-height: 360px;
+  }
+
+  .garden-card {
+    right: 14px;
+    bottom: 14px;
+    width: calc(100% - 28px);
+  }
+
+  .garden-status {
+    top: 14px;
+    left: 14px;
+  }
+
+  .seed-grid,
+  .gallery-grid,
+  .ability-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .pet-layer {
+    right: 14px;
+    bottom: 14px;
+  }
+
+  .pet-bubble {
+    max-width: 170px;
+  }
+
+  .pet,
+  .mascot-image {
+    width: 108px;
+  }
+}

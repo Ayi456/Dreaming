@@ -1,0 +1,19 @@
+:root {
+  --ink: #173122;
+  --muted: #52725d;
+  --dim: #789882;
+  --soil: #f1faed;
+  --soil-2: #e4f3df;
+  --leaf: #d8eed1;
+  --leaf-2: #6eaa74;
+  --accent: #7ccd72;
+  --accent-2: #b9ef9f;
+  --line: rgba(40, 102, 53, 0.16);
+  --panel: rgba(255, 255, 255, 0.7);
+  --panel-strong: rgba(249, 255, 246, 0.92);
+  --shadow: rgba(55, 105, 58, 0.16);
+  --radius: 8px;
+  --nav-height: 72px;
+  color-scheme: light;
+  font-family: "Bahnschrift", "Aptos", "Segoe UI", Arial, sans-serif;
+}

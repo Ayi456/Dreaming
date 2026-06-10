@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="一个互动数字花园风格的个人展示首页。">
+  <title>Interactive Garden Home</title>
+  <link rel="stylesheet" href="./styles/tokens.css">
+  <link rel="stylesheet" href="./styles/base.css">
+  <link rel="stylesheet" href="./styles/layout.css">
+  <link rel="stylesheet" href="./styles/components.css">
+  <link rel="stylesheet" href="./src/features/garden/garden.css">
+  <link rel="stylesheet" href="./src/features/gallery/gallery.css">
+  <link rel="stylesheet" href="./src/features/pet/pet.css">
+  <link rel="stylesheet" href="./styles/responsive.css">
+</head>
+<body>
+  <canvas class="garden-canvas" id="gardenCanvas" aria-hidden="true"></canvas>
+
+  <div class="page-shell">
+    <header class="site-nav" aria-label="主导航">
+      <a class="brand" href="#top" aria-label="回到首页" data-nav-link>
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span>NAME.GARDEN</span>
+      </a>
+      <nav class="nav-links" aria-label="页面导航">
+        <a href="#work" data-nav-link>作品</a>
+        <a href="#gallery" data-nav-link>画廊</a>
+        <a href="#skills" data-nav-link>能力</a>
+        <a href="#contact" data-nav-link>联系</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero" id="top">
+        <div class="hero-grid">
+          <div class="hero-copy" data-reveal>
+            <p class="kicker">产品工程师 / 创意实践者</p>
+            <h1>把想法种下，长成可体验的产品。</h1>
+            <p>我把产品判断、前端工程和视觉表达种在同一个花园里，做出清晰、顺手、值得停留的互动体验。</p>
+            <div class="hero-actions" aria-label="主要操作">
+              <a class="button button-primary" href="#work" data-nav-link>探索花园</a>
+              <button class="button button-secondary" id="plantSeedButton" type="button">种下一颗种子</button>
+            </div>
+          </div>
+
+          <div class="hero-garden" aria-label="互动花园展示" data-reveal>
+            <div class="garden-visual" aria-hidden="true">
+              <span class="plant plant-a"></span>
+              <span class="plant plant-b"></span>
+              <span class="plant plant-c"></span>
+            </div>
+            <div class="garden-status" aria-label="花园状态">
+              <span class="chip"><strong data-seed-count>12</strong>粒种子</span>
+              <span class="chip"><strong>4</strong>个项目</span>
+              <span class="chip">开放合作</span>
+            </div>
+            <div class="garden-card">
+              <strong>live</strong>
+              <span>页面会跟随指针呼吸，项目种子可以展开，联系按钮会给出即时反馈。</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="work" aria-labelledby="work-title">
+        <div class="section-inner">
+          <div class="section-heading" data-reveal>
+            <h2 id="work-title">项目像种子一样展开。</h2>
+            <p>每颗种子都记录一个想法如何从问题长成作品，展开后能看到更完整的判断过程。</p>
+          </div>
+          <div class="seed-grid" data-project-seeds></div>
+        </div>
+      </section>
+
+      <section class="section" id="gallery" aria-labelledby="gallery-title">
+        <div class="section-inner">
+          <div class="section-heading" data-reveal>
+            <h2 id="gallery-title">把灵感留成可翻看的标本。</h2>
+            <p>这里收集界面草图、流程地图、品牌实验和工具想法，让访客看到作品背后的视觉方向。</p>
+          </div>
+          <div class="gallery-grid" data-gallery></div>
+        </div>
+      </section>
+
+      <section class="section" id="skills" aria-labelledby="skills-title">
+        <div class="section-inner greenhouse">
+          <div class="greenhouse-panel" data-reveal>
+            <p class="kicker">能力温室</p>
+            <h2 id="skills-title">把技能养成系统。</h2>
+            <p>我关心的不只是能不能做出来，也关心它是否容易理解、容易迭代、值得被继续使用。</p>
+            <div class="growth-meter" aria-label="成长状态">
+              <span class="chip"><strong>64%</strong>正在生长</span>
+              <div class="meter-track" aria-hidden="true">
+                <div class="meter-fill" data-growth-fill></div>
+              </div>
+            </div>
+          </div>
+          <div class="ability-grid" data-abilities></div>
+        </div>
+      </section>
+
+      <section class="section contact" id="contact" aria-labelledby="contact-title">
+        <div class="section-inner contact-grid" data-reveal>
+          <div>
+            <p class="kicker">联系清场</p>
+            <h2 id="contact-title">有一个想法，也可以先种下来。</h2>
+            <p>把你的目标、参考和限制发来，我可以帮你把它变成清楚、好看、可互动的网页体验。</p>
+            <p class="copy-status" data-copy-status aria-live="polite"></p>
+          </div>
+          <div class="contact-actions">
+            <button class="button button-primary" type="button" data-copy-email>复制邮箱</button>
+            <a class="button button-secondary" href="mailto:hello@example.com" data-mail-link>发送邮件</a>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <div class="pet-layer" data-pet-root aria-live="polite"></div>
+
+  <script type="module" src="./src/main.js"></script>
+</body>
+</html>

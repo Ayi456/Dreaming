@@ -1,0 +1,144 @@
+.garden-canvas {
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.hero-garden {
+  position: relative;
+  min-height: 520px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background:
+    linear-gradient(145deg, rgba(217, 240, 205, 0.88), rgba(255, 255, 255, 0.58)),
+    linear-gradient(180deg, rgba(124, 205, 114, 0.16), transparent);
+  box-shadow: 0 30px 90px var(--shadow);
+}
+
+.garden-visual {
+  position: absolute;
+  inset: 18px;
+  border: 1px solid rgba(40, 102, 53, 0.14);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.garden-visual::before,
+.garden-visual::after {
+  position: absolute;
+  inset: 0;
+  content: "";
+  background:
+    repeating-linear-gradient(0deg, transparent 0 31px, rgba(40, 102, 53, 0.08) 31px 32px),
+    repeating-linear-gradient(90deg, transparent 0 31px, rgba(40, 102, 53, 0.06) 31px 32px);
+  opacity: 0.42;
+}
+
+.garden-visual::after {
+  inset: auto 0 0;
+  height: 44%;
+  background: linear-gradient(180deg, transparent, rgba(231, 247, 224, 0.86));
+  opacity: 1;
+}
+
+.plant {
+  position: absolute;
+  bottom: 0;
+  width: 26px;
+  transform-origin: bottom center;
+  border-radius: 999px 999px 8px 8px;
+  background: linear-gradient(180deg, var(--accent), var(--leaf));
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.62);
+  animation: idlePlant 5s ease-in-out infinite;
+}
+
+.plant::before,
+.plant::after {
+  position: absolute;
+  top: 28%;
+  width: 32px;
+  height: 14px;
+  border-radius: 999px 999px 999px 2px;
+  background: rgba(124, 205, 114, 0.58);
+  content: "";
+}
+
+.plant::before {
+  right: 14px;
+  transform: rotate(-28deg);
+}
+
+.plant::after {
+  left: 14px;
+  transform: rotate(28deg) scaleX(-1);
+}
+
+.plant-a {
+  left: 16%;
+  height: 42%;
+  animation-delay: -500ms;
+}
+
+.plant-b {
+  left: 42%;
+  height: 64%;
+  width: 32px;
+  animation-delay: -1800ms;
+}
+
+.plant-c {
+  right: 18%;
+  height: 50%;
+  animation-delay: -1100ms;
+}
+
+.garden-card {
+  position: absolute;
+  right: 24px;
+  bottom: 24px;
+  display: grid;
+  gap: 12px;
+  width: min(260px, calc(100% - 48px));
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: rgba(255, 255, 255, 0.62);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+.garden-card strong {
+  color: var(--accent);
+  font-size: 2rem;
+  line-height: 1;
+}
+
+.garden-card span {
+  color: var(--muted);
+  font-size: 0.92rem;
+  line-height: 1.5;
+}
+
+.garden-status {
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  max-width: calc(100% - 48px);
+}
+
+@keyframes idlePlant {
+  0%,
+  100% {
+    transform: rotate(-1deg) scaleY(1);
+  }
+  50% {
+    transform: rotate(2deg) scaleY(1.025);
+  }
+}

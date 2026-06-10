@@ -1,0 +1,114 @@
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.gallery-card {
+  display: grid;
+  gap: 14px;
+  min-height: 310px;
+  padding: 14px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: rgba(255, 255, 255, 0.7);
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition: transform 220ms ease, border-color 220ms ease, background 220ms ease;
+}
+
+.gallery-card:hover,
+.gallery-card:focus-visible {
+  transform: translateY(-4px);
+  border-color: rgba(86, 158, 76, 0.3);
+  background: var(--panel-strong);
+  outline: none;
+}
+
+.gallery-visual,
+.gallery-dialog-visual {
+  min-height: 150px;
+  border-radius: var(--radius);
+  border: 1px solid rgba(40, 102, 53, 0.14);
+}
+
+.visual-a {
+  background:
+    linear-gradient(135deg, rgba(185, 239, 159, 0.96), rgba(111, 170, 116, 0.62)),
+    repeating-linear-gradient(45deg, transparent 0 16px, rgba(40, 102, 53, 0.12) 16px 17px);
+}
+
+.visual-b {
+  background:
+    linear-gradient(120deg, rgba(249, 255, 246, 0.96), rgba(124, 205, 114, 0.38)),
+    repeating-linear-gradient(90deg, rgba(40, 102, 53, 0.13) 0 2px, transparent 2px 28px);
+}
+
+.visual-c {
+  background:
+    linear-gradient(160deg, rgba(255, 255, 255, 0.96), rgba(185, 239, 159, 0.5) 42%, rgba(226, 244, 217, 0.86)),
+    linear-gradient(90deg, rgba(40, 102, 53, 0.12), transparent);
+}
+
+.visual-d {
+  background:
+    linear-gradient(135deg, rgba(230, 247, 224, 0.96), rgba(119, 174, 124, 0.5)),
+    repeating-linear-gradient(0deg, rgba(40, 102, 53, 0.16) 0 1px, transparent 1px 18px);
+}
+
+.gallery-card-copy {
+  display: grid;
+  gap: 8px;
+}
+
+.gallery-type {
+  color: var(--accent);
+  font-size: 0.88rem;
+  font-weight: 800;
+}
+
+.gallery-title {
+  font-size: 1.25rem;
+  font-weight: 900;
+}
+
+.gallery-description {
+  color: var(--muted);
+  line-height: 1.58;
+}
+
+.gallery-dialog {
+  width: min(680px, calc(100% - 32px));
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--soil-2);
+  color: var(--ink);
+  box-shadow: 0 40px 120px rgba(55, 105, 58, 0.28);
+}
+
+.gallery-dialog::backdrop {
+  background: rgba(239, 249, 234, 0.72);
+  backdrop-filter: blur(8px);
+}
+
+.gallery-dialog-body {
+  display: grid;
+  gap: 18px;
+  padding: 20px;
+}
+
+.gallery-dialog h3 {
+  margin: 0;
+  font-size: 2rem;
+}
+
+.gallery-dialog p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.72;
+}
+
+.dialog-close {
+  justify-self: end;
+}

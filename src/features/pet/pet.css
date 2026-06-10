@@ -1,0 +1,73 @@
+.pet-layer {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 2147483000;
+  display: grid;
+  justify-items: end;
+  gap: 8px;
+  touch-action: none;
+}
+
+.pet-bubble {
+  max-width: 210px;
+  padding: 10px 12px;
+  border: 0;
+  border-radius: var(--radius);
+  background: rgba(255, 255, 255, 0.72);
+  color: var(--muted);
+  font-size: 0.88rem;
+  line-height: 1.45;
+  box-shadow: 0 12px 32px rgba(55, 105, 58, 0.16);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.pet {
+  position: relative;
+  width: 132px;
+  min-height: 150px;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  filter: drop-shadow(0 18px 28px rgba(55, 105, 58, 0.24));
+  cursor: grab;
+}
+
+.pet:active {
+  cursor: grabbing;
+}
+
+.pet:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 5px;
+}
+
+.mascot-image {
+  display: block;
+  width: 132px;
+  height: auto;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.pet.is-reacting {
+  animation: petReact 560ms ease;
+}
+
+@keyframes petReact {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  35% {
+    transform: translateY(-8px) rotate(-5deg);
+  }
+  70% {
+    transform: translateY(2px) rotate(4deg);
+  }
+}
