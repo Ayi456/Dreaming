@@ -1,11 +1,13 @@
 export function normalizeGalleryItem(item, index = 0) {
+  const visual = item.visual || "visual-a";
+
   return {
     id: item.id || item.slug || `gallery-${index + 1}`,
     slug: item.slug || item.id || `gallery-${index + 1}`,
     title: item.title || "Untitled",
     type: item.type || "Gallery",
     description: item.description || "",
-    visual: item.visual || "visual-a",
+    visual: /^[A-Za-z0-9_-]+$/.test(visual) ? visual : "visual-a",
     imageUrl: item.imageUrl || item.image_url || null,
     sortOrder: item.sortOrder ?? item.sort_order ?? index
   };

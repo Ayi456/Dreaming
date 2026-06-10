@@ -1,0 +1,6 @@
+docs/
+node_modules/
+nodel_modules/
+.edge-profile-desktop/
+.superpowers/
+.env

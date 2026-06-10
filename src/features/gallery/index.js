@@ -1,4 +1,20 @@
 import { createElement, qs } from "../../core/dom.js";
+import { loadGalleryItems } from "./galleryApi.js";
+
+function escapeHtml(value) {
+  return String(value ?? "").replace(/[&<>"']/g, (character) => ({
+    "&": "&amp;",
+    "<": "&lt;",
+    ">": "&gt;",
+    '"': "&quot;",
+    "'": "&#39;"
+  })[character]);
+}
+
+function renderGalleryImage(item) {
+  if (!item.imageUrl) return "";
+  return `<img class="gallery-image" src="${escapeHtml(item.imageUrl)}" alt="">`;
+}
 
 function createDialog() {
   const dialog = createElement("dialog", { className: "gallery-dialog" });
@@ -14,7 +30,7 @@ function createDialog() {
   return dialog;
 }
 
-function renderGalleryItem(item, dialog, eventBus) {
+function renderGalleryItem(item, dialog, eventBus, { visible = false } = {}) {
   const card = createElement("button", {
     className: "gallery-card",
     type: "button",
@@ -22,11 +38,13 @@ function renderGalleryItem(item, dialog, eventBus) {
   });
 
   card.innerHTML = `
-    <span class="gallery-visual ${item.visual}" aria-hidden="true"></span>
+    <span class="gallery-visual ${item.visual}" aria-hidden="true">
+      ${renderGalleryImage(item)}
+    </span>
     <span class="gallery-card-copy">
-      <span class="gallery-type">${item.type}</span>
-      <span class="gallery-title">${item.title}</span>
-      <span class="gallery-description">${item.description}</span>
+      <span class="gallery-type">${escapeHtml(item.type)}</span>
+      <span class="gallery-title">${escapeHtml(item.title)}</span>
+      <span class="gallery-description">${escapeHtml(item.description)}</span>
     </span>
   `;
 
@@ -35,9 +53,14 @@ function renderGalleryItem(item, dialog, eventBus) {
     qs("[data-dialog-description]", dialog).textContent = item.description;
     const visual = qs("[data-dialog-visual]", dialog);
     visual.className = "gallery-dialog-visual " + item.visual;
+    visual.innerHTML = renderGalleryImage(item);
     dialog.showModal();
     eventBus.emit("gallery:opened", item);
   });
+
+  if (visible) {
+    card.classList.add("is-visible");
+  }
 
   return card;
 }
@@ -61,7 +84,16 @@ export function createGalleryFeature({ data, eventBus }) {
       });
 
       document.body.append(dialog);
-      container.replaceChildren(...data.gallery.map((item) => renderGalleryItem(item, dialog, eventBus)));
+      const renderItems = (items, options = {}) => {
+        container.replaceChildren(...items.map((item) => renderGalleryItem(item, dialog, eventBus, options)));
+      };
+
+      renderItems(data.gallery);
+
+      loadGalleryItems({ fallbackItems: data.gallery }).then((items) => {
+        renderItems(items, { visible: true });
+        eventBus.emit("gallery:loaded", { source: "api", count: items.length });
+      });
     },
 
     destroy() {
