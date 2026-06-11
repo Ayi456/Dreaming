@@ -1,0 +1,123 @@
+/* 彩虹主题增强样式 */
+
+/* 平滑过渡动画 */
+* {
+  transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Hero 部分增强光效 */
+.hero::before {
+  content: "";
+  position: absolute;
+  top: -20%;
+  right: -10%;
+  width: 60%;
+  height: 60%;
+  background: radial-gradient(circle, rgba(158, 212, 255, 0.15) 0%, transparent 70%);
+  pointer-events: none;
+  animation: floatGlow 8s ease-in-out infinite;
+}
+
+@keyframes floatGlow {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.6;
+  }
+  50% {
+    transform: translate(-30px, -30px) scale(1.1);
+    opacity: 0.8;
+  }
+}
+
+/* Section 标题增强 */
+.section-heading h2 {
+  position: relative;
+  padding-bottom: 8px;
+}
+
+.section-heading h2::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 60px;
+  height: 4px;
+  background: var(--rainbow);
+  border-radius: 2px;
+}
+
+/* 卡片悬停增强 */
+.seed-card:hover {
+  transform: translateY(-6px) scale(1.01);
+}
+
+.ability-card {
+  transition: all 300ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.ability-card:hover {
+  transform: translateY(-4px);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.6) inset,
+    0 24px 60px rgba(110, 184, 245, 0.25);
+}
+
+/* 联系区域增强 */
+.contact {
+  position: relative;
+}
+
+.contact::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 800px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(110, 184, 245, 0.3) 50%, transparent);
+}
+
+/* 按钮增强 */
+.button {
+  position: relative;
+  overflow: hidden;
+}
+
+.button::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: translate(-50%, -50%);
+  transition: width 400ms ease, height 400ms ease;
+}
+
+.button:hover::before {
+  width: 300px;
+  height: 300px;
+}
+
+.button > * {
+  position: relative;
+  z-index: 1;
+}
+
+
+/* 彩虹渐变背景噪点 */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image:
+    radial-gradient(circle at 20% 80%, rgba(255, 107, 157, 0.06) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(136, 212, 255, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 40% 40%, rgba(255, 217, 125, 0.05) 0%, transparent 50%);
+}
